@@ -1,19 +1,16 @@
 package main
 
-import (
-	"fmt"
-)
-import "github.com/gin-gonic/gin"
-
 func main()  {
-	router := gin.Default()
-	router.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-	router.Run() // 监听并在 0.0.0.0:8080 上启动服务
-	fmt.Println("hello")
+	btree := tree{root:nil}
+	btree.Insert(1)
+	btree.Insert(2)
+	btree.Insert(3)
+	btree.Insert(4)
+	btree.Insert(5)
+	btree.Insert(6)
+	btree.Insert(7)
+
+	btree.breadthTravel()
 }
 
 
