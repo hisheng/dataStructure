@@ -39,9 +39,9 @@ func TestTree_Insert(t *testing.T) {
 
 	//用一个队列来存储 nodes
 	fmt.Println("PreOrder")
-	PreOrder(btree.root)
+	PreOrderTraversal(btree.root)
 	fmt.Println("InOrder")
-	InOrder(btree.root)
+	InOrderTraversal(btree.root)
 	fmt.Println("PostOrder")
-	PostOrder(btree.root)
+	PostOrderTraversal(btree.root)
 }

@@ -47,31 +47,31 @@ func (btree *tree) Search(dt int) *node {
 */
 
 //前序遍历：根节点->左子树->右子树
-func PreOrder(nd *node) {
+func PreOrderTraversal(nd *node) {
 	if nd == nil {
 		return
 	}
 	fmt.Println(nd.data)
-	PreOrder(nd.left)
-	PreOrder(nd.right)
+	PreOrderTraversal(nd.left)
+	PreOrderTraversal(nd.right)
 }
 
 //中序遍历：左子树---> 根结点 ---> 右子树
-func InOrder(nd *node) {
+func InOrderTraversal(nd *node) {
 	if nd == nil {
 		return
 	}
-	PreOrder(nd.left)
+	PreOrderTraversal(nd.left)
 	fmt.Println(nd.data)
-	PreOrder(nd.right)
+	PreOrderTraversal(nd.right)
 }
 
 //后序遍历：左子树 ---> 右子树 ---> 根结点
-func PostOrder(nd *node) {
+func PostOrderTraversal(nd *node) {
 	if nd == nil {
 		return
 	}
-	PreOrder(nd.left)
-	PreOrder(nd.right)
+	PreOrderTraversal(nd.left)
+	PreOrderTraversal(nd.right)
 	fmt.Println(nd.data)
 }
