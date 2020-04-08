@@ -1,16 +1,12 @@
 package main
 
-func main()  {
-	btree := tree{root:nil}
-	btree.Insert(1)
-	btree.Insert(2)
-	btree.Insert(3)
-	btree.Insert(4)
-	btree.Insert(5)
-	btree.Insert(6)
-	btree.Insert(7)
+import (
+	"fmt"
+	"github.com/hisheng/dataStructure/binary_tree/data"
+)
 
-	btree.breadthTravel()
+func main() {
+	fmt.Println(111)
+	btree := data.NewTree()
+	fmt.Println(btree)
 }
-
-
