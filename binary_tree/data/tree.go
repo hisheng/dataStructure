@@ -1,5 +1,7 @@
 package data
 
+import "fmt"
+
 //https://www.cnblogs.com/coderJiebao/p/Algorithmofnotes20.html
 //https://studygolang.com/articles/3174
 //二叉树结构
@@ -27,44 +29,49 @@ func (btree *tree) Insert(dt int) {
 		btree.count++ //目前的写法，好像没法统计这个count++,因为后面是子节点的添加，没有带进这个 tree
 		return
 	}
-	if btree.root.data == dt {
-		return
-	}
-	if dt > btree.root.data {
-		if btree.root.right == nil {
-			btree.root.right = NewNode(dt)
-		} else {
-			btree.root.right.Insert(NewNode(dt))
-		}
-	} else {
-		if btree.root.left == nil {
-			btree.root.left = NewNode(dt)
-		} else {
-			btree.root.left.Insert(NewNode(dt))
-		}
-	}
-
+	btree.root.Insert(NewNode(dt))
 }
 
 func (btree *tree) Search(dt int) *node {
-	if btree.root == nil {
-		return nil
-	}
-	if dt == btree.root.data {
-		return btree.root
-	}
-
-	if dt > btree.root.data {
-		return btree.root.right.Search(dt)
-	}
-
-	if dt < btree.root.data {
-		return btree.root.left.Search(dt)
-	}
-	return nil
+	return btree.root.Search(dt)
 }
 
 //广度遍历 pre-order / in-order / post-order / breadth-first
-func (btree *tree) PreOrder() *[]node {
-	return []
+
+//前(中后)序遍历，是按照 根节点 在哪命名的
+/*前序遍历：根结点 ---> 左子树 ---> 右子树
+
+中序遍历：左子树---> 根结点 ---> 右子树
+
+后序遍历：左子树 ---> 右子树 ---> 根结点
+*/
+
+//前序遍历：根节点->左子树->右子树
+func PreOrder(nd *node) {
+	if nd == nil {
+		return
+	}
+	fmt.Println(nd.data)
+	PreOrder(nd.left)
+	PreOrder(nd.right)
+}
+
+//中序遍历：左子树---> 根结点 ---> 右子树
+func InOrder(nd *node) {
+	if nd == nil {
+		return
+	}
+	PreOrder(nd.left)
+	fmt.Println(nd.data)
+	PreOrder(nd.right)
+}
+
+//后序遍历：左子树 ---> 右子树 ---> 根结点
+func PostOrder(nd *node) {
+	if nd == nil {
+		return
+	}
+	PreOrder(nd.left)
+	PreOrder(nd.right)
+	fmt.Println(nd.data)
 }

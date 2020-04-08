@@ -30,6 +30,9 @@ func (nd *node) Insert(newNode *node) {
 }
 
 func (nd *node) Search(dt int) *node {
+	if nd == nil {
+		return nil
+	}
 	if dt == nd.data {
 		return nd
 	}
@@ -41,6 +44,5 @@ func (nd *node) Search(dt int) *node {
 	if dt < nd.data {
 		return nd.left.Search(dt)
 	}
-
 	return nil
 }

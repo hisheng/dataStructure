@@ -30,6 +30,18 @@ func TestTree_Insert(t *testing.T) {
 	t.Log("情况3 增加第3条 btree.root.left.right.data =", btree.root.left.right.data)
 	assert.Equal(t, btree.root.left.right.data, -9)
 
+	btree.Insert(-11)
+	t.Log("情况3 增加第3条 btree.root.left.left.data =", btree.root.left.left.data)
+	assert.Equal(t, btree.root.left.left.data, -11)
+
 	//search -9
 	fmt.Println("search -9", btree.Search(-10))
+
+	//用一个队列来存储 nodes
+	fmt.Println("PreOrder")
+	PreOrder(btree.root)
+	fmt.Println("InOrder")
+	InOrder(btree.root)
+	fmt.Println("PostOrder")
+	PostOrder(btree.root)
 }
