@@ -2,11 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/hisheng/dataStructure/binary_tree/data"
+	"math"
 )
 
 func main() {
-	fmt.Println(111)
-	btree := data.NewTree()
-	fmt.Println(btree)
+	//fmt.Println(111)
+	//btree := data.NewTree()
+	//fmt.Println(btree)
+	x := 1.1
+	fmt.Println(math.Ceil(x))
+	fmt.Println(math.Floor(x))
 }

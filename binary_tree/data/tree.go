@@ -56,14 +56,14 @@ func PreOrderTraversal(nd *node) {
 	PreOrderTraversal(nd.right)
 }
 
-//中序遍历：左子树---> 根结点 ---> 右子树
+//中序遍历：左子树---> 根结点 ---> 右子树 --- 中序遍历来实现，可以保证按从小到大的顺序打印。
 func InOrderTraversal(nd *node) {
 	if nd == nil {
 		return
 	}
-	PreOrderTraversal(nd.left)
+	InOrderTraversal(nd.left)
 	fmt.Println(nd.data)
-	PreOrderTraversal(nd.right)
+	InOrderTraversal(nd.right)
 }
 
 //后序遍历：左子树 ---> 右子树 ---> 根结点
@@ -71,7 +71,8 @@ func PostOrderTraversal(nd *node) {
 	if nd == nil {
 		return
 	}
-	PreOrderTraversal(nd.left)
-	PreOrderTraversal(nd.right)
+	PostOrderTraversal(nd.left)
+	PostOrderTraversal(nd.right)
 	fmt.Println(nd.data)
+
 }

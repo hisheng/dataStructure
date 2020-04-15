@@ -35,7 +35,7 @@ func TestTree_Insert(t *testing.T) {
 	assert.Equal(t, btree.root.left.left.data, -11)
 
 	//search -9
-	fmt.Println("search -9", btree.Search(-10))
+	fmt.Println("search -10", btree.Search(-10))
 
 	//用一个队列来存储 nodes
 	fmt.Println("PreOrder")
