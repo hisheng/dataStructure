@@ -1,6 +1,8 @@
 package bloom_filter
 
-import "crypto/sha256"
+import (
+	"crypto/sha256"
+)
 import "github.com/spaolacci/murmur3"
 
 type BloomFilter interface {
@@ -18,6 +20,7 @@ type MemoryBloomFilter struct {
 	bs BitSets
 }
 
+/*n 做多存储多少个 bit */
 func NewMemoryBloomFilter(n uint, k uint) *MemoryBloomFilter {
 	return &MemoryBloomFilter{
 		k:  k,
@@ -28,8 +31,9 @@ func NewMemoryBloomFilter(n uint, k uint) *MemoryBloomFilter {
 // Put 添加一条记录
 func (filter *MemoryBloomFilter) Put(data []byte) {
 	l := uint(len(filter.bs))
+	//通过seed，相当于是 不同的 hash函数，得出不同的hash值
 	for i := uint(0); i < filter.k; i++ {
-		filter.bs.Set(HashData(data, i) % l)
+		filter.bs.Set(HashFunc(data, i) % l)
 	}
 }
 
@@ -43,7 +47,7 @@ func (filter *MemoryBloomFilter) Has(data []byte) bool {
 	l := uint(len(filter.bs))
 
 	for i := uint(0); i < filter.k; i++ {
-		if !filter.bs.IsSet(HashData(data, i) % l) {
+		if !filter.bs.IsSet(HashFunc(data, i) % l) {
 			return false
 		}
 	}
@@ -61,10 +65,9 @@ func (filter *MemoryBloomFilter) Close() {
 	filter.bs = nil
 }
 
-func HashData(data []byte, seed uint) uint {
-	sha_data := sha256.Sum256(data)
-	data = sha_data[:]
-	m := murmur3.New64WithSeed(uint32(seed))
-	m.Write(data)
-	return uint(m.Sum64())
+/*作用是 hash*/
+func HashFunc(data []byte, seed uint) uint {
+	sha_data := sha256.Sum256(data) //1加密 sha256 ，是不是也可以不加密?
+
+	return uint(murmur3.Sum64WithSeed(sha_data[0:], uint32(seed))) //2 均匀随机 分布 key
 }
