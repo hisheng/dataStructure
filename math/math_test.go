@@ -1,6 +1,8 @@
 package math
 
 import (
+	"context"
+	"github.com/golang/groupcache"
 	"github.com/hisheng/dataStructure/binary_tree/data"
 	"math"
 	"math/rand"
@@ -30,6 +32,10 @@ func TestFloatToInt(t *testing.T) {
 		root.Insert(data.NewNode(n))
 	}
 	data.PostOrderTraversal(root)
+}
+
+func TestCache(t *testing.T) {
+	stringGroup = groupcache.NewGroup("coin", 1000)
 }
 
 /*
