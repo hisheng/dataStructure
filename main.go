@@ -1,15 +1,19 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+func preorderTraversal(root *TreeNode) []int {
+	var vals []int
+	vals = append(vals, root.Val)
+	preorderTraversal(root.Left)
+	preorderTraversal(root.Right)
+	return vals
+}
 
 func main() {
-	//fmt.Println(111)
-	//btree := data.NewTree()
-	//fmt.Println(btree)
-	x := 1.1
-	fmt.Println(math.Ceil(x))
-	fmt.Println(math.Floor(x))
+
 }

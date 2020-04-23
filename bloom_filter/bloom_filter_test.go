@@ -3,6 +3,7 @@ package bloom_filter
 import (
 	"crypto/sha256"
 	"github.com/go-playground/assert/v2"
+	"github.com/spaolacci/murmur3"
 	"testing"
 )
 
@@ -32,6 +33,15 @@ func TestMemoryBloomFilter_PutString(t *testing.T) {
 }
 
 func TestNewMemoryBloomFilter(t *testing.T) {
+	hs1 := murmur3.Sum64WithSeed([]byte("byte"), 0)
+	hs2 := murmur3.Sum64WithSeed([]byte("a"), 0)
+	hs3 := murmur3.Sum64WithSeed([]byte("hello"), 0)
+	hs4 := murmur3.Sum64WithSeed([]byte("b"), 0)
+	t.Log("murmur3 hs1 = ", hs1)
+	t.Log("murmur3 hs2 = ", hs2)
+	t.Log("murmur3 hs3 = ", hs3)
+	t.Log("murmur3 hs4 = ", hs4)
+
 	memoryBloomFilter := NewMemoryBloomFilter(100, 4)
 	t.Log("TestNewMemoryBloomFilter")
 	t.Log(memoryBloomFilter.bs)

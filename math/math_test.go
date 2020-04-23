@@ -1,8 +1,6 @@
 package math
 
 import (
-	"context"
-	"github.com/golang/groupcache"
 	"github.com/hisheng/dataStructure/binary_tree/data"
 	"math"
 	"math/rand"
@@ -34,9 +32,16 @@ func TestFloatToInt(t *testing.T) {
 	data.PostOrderTraversal(root)
 }
 
-func TestCache(t *testing.T) {
-	stringGroup = groupcache.NewGroup("coin", 1000)
+func TestRand(t *testing.T) {
+	for i := 0; i < 100; i++ {
+		t.Log("rand num 32int= ", rand.Int31n(100))
+		//t.Log("rand num int = ", rand.Intn(20))
+	}
 }
+
+//func TestCache(t *testing.T) {
+//	stringGroup = groupcache.NewGroup("coin", 1000)
+//}
 
 /*
 Golang 获取两个数之间的随机数，下面的例子可以随机生成4 位数字的验证码
