@@ -1,6 +1,7 @@
 package string
 
 import (
+	"fmt"
 	"math/rand"
 	"strconv"
 	"strings"
@@ -18,4 +19,12 @@ func TestSliceToStrings(t *testing.T) {
 	t.Log(numSlice)
 	t.Log(s)
 
+}
+
+func TestSprint(t *testing.T) {
+	t.Log(fmt.Sprint(1))
+	var s string
+	s = fmt.Sprint(0)
+	t.Log(s)
+	t.Log(fmt.Sprint("1"))
 }
