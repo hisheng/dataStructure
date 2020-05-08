@@ -32,12 +32,7 @@ func TestFloatToInt(t *testing.T) {
 	data.PostOrderTraversal(root)
 }
 
-func TestRand(t *testing.T) {
-	for i := 0; i < 100; i++ {
-		t.Log("rand num 32int= ", rand.Int31n(100))
-		//t.Log("rand num int = ", rand.Intn(20))
-	}
-}
+
 
 //func TestCache(t *testing.T) {
 //	stringGroup = groupcache.NewGroup("coin", 1000)
