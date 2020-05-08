@@ -46,3 +46,14 @@ func (nd *node) Search(dt int) *node {
 	}
 	return nil
 }
+
+/*这样的方法，就会 无序了? 以后数据就乱了，所以 不是这样的改的*/
+func (nd *node) Update(dt, newDt int) *node {
+	//1搜索
+	dtnd := nd.Search(dt)
+	//2 update
+	if dtnd != nil {
+		dtnd.data = newDt
+	}
+	return dtnd
+}
