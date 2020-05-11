@@ -10,4 +10,13 @@ func TestEqual(t *testing.T) {
 	t.Log(reflect.DeepEqual(1, 1))
 	t.Log(reflect.DeepEqual("1", "1"))
 	t.Log(reflect.DeepEqual("1", "2"))
+
+	//2 .特别是 struct的比较相等
+	//var conf MysqlConfig
+	//if err := config.Get("mysql", key).Scan(&conf); err != nil {
+	//	return nil, err
+	//}
+	//if reflect.DeepEqual(conf, MysqlConfig{}) {
+	//
+	//}
 }
