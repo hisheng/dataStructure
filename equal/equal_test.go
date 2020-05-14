@@ -19,4 +19,5 @@ func TestEqual(t *testing.T) {
 	//if reflect.DeepEqual(conf, MysqlConfig{}) {
 	//
 	//}
+
 }
