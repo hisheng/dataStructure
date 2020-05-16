@@ -21,4 +21,10 @@ func TestMd5(t *testing.T) {
 	//方法2
 	t.Log(fmt.Sprintf("%x", md5.Sum([]byte("mynameishishneg"))))
 	t.Log(fmt.Sprintf("%x", md5.Sum([]byte("hiword"))))
+
+	//方法3
+	m5 = md5.New()
+	m5.Write([]byte("mynameishishneg"))
+	m5str := m5.Sum(nil)
+	t.Log(fmt.Sprintf("%x", m5str))
 }
