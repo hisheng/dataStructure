@@ -1,8 +1,19 @@
 package _map
 
 import (
+	"fmt"
 	"testing"
 )
+
+type ps struct{}
+
+func (p ps) init() {
+	fmt.Println("---------ps init----")
+}
+
+func init() {
+	fmt.Println("---------init----")
+}
 
 func TestMap(t *testing.T) {
 	var person map[string]string
@@ -24,4 +35,22 @@ func TestMap(t *testing.T) {
 	for k, v := range kvs {
 		t.Logf("k=%s v=%s", k, v)
 	}
+}
+
+func TestMapKey(t *testing.T) {
+	var person = make(map[string]string, 0)
+	person["name"] = "hisneg"
+	person["age"] = "22"
+
+	value, exists := person["name"]
+	fmt.Println(value, exists)
+
+	value, exists = person["name_none"]
+	a := person["name_none"]
+	t.Logf("%p", &a)
+	t.Log(person["name_none"])
+	t.Log("----")
+	t.Logf("%v %v", value, exists)
+	t.Log("----end")
+
 }
