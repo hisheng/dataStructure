@@ -19,6 +19,9 @@ func TestSliceToStrings(t *testing.T) {
 	t.Log(numSlice)
 	t.Log(s)
 
+	helle := "helloname"
+	t.Log(helle[0:3])
+
 }
 
 func TestSprint(t *testing.T) {
@@ -28,3 +31,5 @@ func TestSprint(t *testing.T) {
 	t.Log(s)
 	t.Log(fmt.Sprint("1"))
 }
+
+
