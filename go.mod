@@ -11,6 +11,7 @@ require (
 	github.com/pierrec/lz4 v2.5.2+incompatible // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20200313005456-10cdbea86bc0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0
+	github.com/spf13/cobra v1.0.0
 	google.golang.org/grpc v1.26.0
 	gopkg.in/Shopify/sarama.v1 v1.20.1 // indirect
 )
