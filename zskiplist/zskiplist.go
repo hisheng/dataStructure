@@ -69,6 +69,7 @@ func ZslInsert(zsl *Zskiplist, score float64, ele string) *ZskiplistNode {
 	//var x zskiplistNode
 	level := ZslRandomLevel()
 	x := ZslCreateNode(level, score, ele)
+	x.Backward = zsl.Tail
 	if zsl.Tail != nil {
 		zsl.Tail.Levels[0].Forward = x
 	}

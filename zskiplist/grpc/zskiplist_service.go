@@ -3,11 +3,14 @@ package grpc
 import (
 	"context"
 	"fmt"
+	"strconv"
 	"zskiplist"
 )
 
 func NewZskiplistService() ZskiplistServer {
-	return &ZskiplistService{}
+	return &ZskiplistService{
+		zsl: zskiplist.ZslCreate(),
+	}
 }
 
 type ZskiplistService struct {
@@ -23,8 +26,41 @@ func (zsp *ZskiplistService) SayHello(ctx context.Context, req *HelloRequest) (*
 }
 
 func (zsp *ZskiplistService) Zadd(ctx context.Context, req *ZaddRequest) (*ZaddReply, error) {
-	return nil, nil
+	score, err := strconv.ParseFloat(req.Score, 64)
+	if err != nil {
+		return nil, err
+	}
+	zskiplist.ZslInsert(zsp.zsl, score, req.Ele)
+	var list []*Zskip
+	x := zsp.zsl.Tail
+	for x.Backward != nil {
+		z := &Zskip{
+			Ele:   x.Ele,
+			Score: strconv.FormatFloat(x.Score, 'E', -1, 64),
+		}
+		list = append(list, z)
+		x = x.Backward
+	}
+
+	reply := &ZaddReply{
+		List: list,
+	}
+	return reply, nil
 }
 func (zsp *ZskiplistService) List(ctx context.Context, req *ListRequest) (*ListReply, error) {
-	return nil, nil
+	var list []*Zskip
+	x := zsp.zsl.Tail
+	for x.Backward != nil {
+		z := &Zskip{
+			Ele:   x.Ele,
+			Score: strconv.FormatFloat(x.Score, 'E', -1, 64),
+		}
+		list = append(list, z)
+		x = x.Backward
+	}
+
+	reply := &ListReply{
+		List: list,
+	}
+	return reply, nil
 }
