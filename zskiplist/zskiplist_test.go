@@ -1,4 +1,4 @@
-package main
+package zskiplist
 
 import (
 	"fmt"
@@ -20,4 +20,14 @@ func TestZslRandomLevels(t *testing.T) {
 	}
 	fmt.Println(nums)
 	fmt.Println("TestZslRandomLevels")
+}
+
+func TestZslInsert(t *testing.T) {
+	fmt.Println("TestZslInsert")
+	zsl := ZslCreate()
+	fmt.Println(zsl)
+	ZslInsert(zsl, 1, "ele")
+	ZslInsert(zsl, 2, "ele2")
+	fmt.Println(zsl)
+	fmt.Println("TestZslInsert")
 }

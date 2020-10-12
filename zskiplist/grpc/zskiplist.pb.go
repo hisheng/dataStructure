@@ -24,6 +24,225 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+type ZaddRequest struct {
+	Ele                  string   `protobuf:"bytes,1,opt,name=ele,proto3" json:"ele,omitempty"`
+	Score                string   `protobuf:"bytes,2,opt,name=score,proto3" json:"score,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ZaddRequest) Reset()         { *m = ZaddRequest{} }
+func (m *ZaddRequest) String() string { return proto.CompactTextString(m) }
+func (*ZaddRequest) ProtoMessage()    {}
+func (*ZaddRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6af20da3838980fa, []int{0}
+}
+
+func (m *ZaddRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ZaddRequest.Unmarshal(m, b)
+}
+func (m *ZaddRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ZaddRequest.Marshal(b, m, deterministic)
+}
+func (m *ZaddRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ZaddRequest.Merge(m, src)
+}
+func (m *ZaddRequest) XXX_Size() int {
+	return xxx_messageInfo_ZaddRequest.Size(m)
+}
+func (m *ZaddRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ZaddRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ZaddRequest proto.InternalMessageInfo
+
+func (m *ZaddRequest) GetEle() string {
+	if m != nil {
+		return m.Ele
+	}
+	return ""
+}
+
+func (m *ZaddRequest) GetScore() string {
+	if m != nil {
+		return m.Score
+	}
+	return ""
+}
+
+type ZaddReply struct {
+	List                 []*Zskip `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ZaddReply) Reset()         { *m = ZaddReply{} }
+func (m *ZaddReply) String() string { return proto.CompactTextString(m) }
+func (*ZaddReply) ProtoMessage()    {}
+func (*ZaddReply) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6af20da3838980fa, []int{1}
+}
+
+func (m *ZaddReply) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ZaddReply.Unmarshal(m, b)
+}
+func (m *ZaddReply) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ZaddReply.Marshal(b, m, deterministic)
+}
+func (m *ZaddReply) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ZaddReply.Merge(m, src)
+}
+func (m *ZaddReply) XXX_Size() int {
+	return xxx_messageInfo_ZaddReply.Size(m)
+}
+func (m *ZaddReply) XXX_DiscardUnknown() {
+	xxx_messageInfo_ZaddReply.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ZaddReply proto.InternalMessageInfo
+
+func (m *ZaddReply) GetList() []*Zskip {
+	if m != nil {
+		return m.List
+	}
+	return nil
+}
+
+type ListRequest struct {
+	Ele                  string   `protobuf:"bytes,1,opt,name=ele,proto3" json:"ele,omitempty"`
+	Score                string   `protobuf:"bytes,2,opt,name=score,proto3" json:"score,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ListRequest) Reset()         { *m = ListRequest{} }
+func (m *ListRequest) String() string { return proto.CompactTextString(m) }
+func (*ListRequest) ProtoMessage()    {}
+func (*ListRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6af20da3838980fa, []int{2}
+}
+
+func (m *ListRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListRequest.Unmarshal(m, b)
+}
+func (m *ListRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListRequest.Marshal(b, m, deterministic)
+}
+func (m *ListRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListRequest.Merge(m, src)
+}
+func (m *ListRequest) XXX_Size() int {
+	return xxx_messageInfo_ListRequest.Size(m)
+}
+func (m *ListRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListRequest proto.InternalMessageInfo
+
+func (m *ListRequest) GetEle() string {
+	if m != nil {
+		return m.Ele
+	}
+	return ""
+}
+
+func (m *ListRequest) GetScore() string {
+	if m != nil {
+		return m.Score
+	}
+	return ""
+}
+
+type ListReply struct {
+	List                 []*Zskip `protobuf:"bytes,1,rep,name=list,proto3" json:"list,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ListReply) Reset()         { *m = ListReply{} }
+func (m *ListReply) String() string { return proto.CompactTextString(m) }
+func (*ListReply) ProtoMessage()    {}
+func (*ListReply) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6af20da3838980fa, []int{3}
+}
+
+func (m *ListReply) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListReply.Unmarshal(m, b)
+}
+func (m *ListReply) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListReply.Marshal(b, m, deterministic)
+}
+func (m *ListReply) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListReply.Merge(m, src)
+}
+func (m *ListReply) XXX_Size() int {
+	return xxx_messageInfo_ListReply.Size(m)
+}
+func (m *ListReply) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListReply.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListReply proto.InternalMessageInfo
+
+func (m *ListReply) GetList() []*Zskip {
+	if m != nil {
+		return m.List
+	}
+	return nil
+}
+
+type Zskip struct {
+	Ele                  string   `protobuf:"bytes,1,opt,name=ele,proto3" json:"ele,omitempty"`
+	Score                string   `protobuf:"bytes,2,opt,name=score,proto3" json:"score,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Zskip) Reset()         { *m = Zskip{} }
+func (m *Zskip) String() string { return proto.CompactTextString(m) }
+func (*Zskip) ProtoMessage()    {}
+func (*Zskip) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6af20da3838980fa, []int{4}
+}
+
+func (m *Zskip) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Zskip.Unmarshal(m, b)
+}
+func (m *Zskip) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Zskip.Marshal(b, m, deterministic)
+}
+func (m *Zskip) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Zskip.Merge(m, src)
+}
+func (m *Zskip) XXX_Size() int {
+	return xxx_messageInfo_Zskip.Size(m)
+}
+func (m *Zskip) XXX_DiscardUnknown() {
+	xxx_messageInfo_Zskip.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Zskip proto.InternalMessageInfo
+
+func (m *Zskip) GetEle() string {
+	if m != nil {
+		return m.Ele
+	}
+	return ""
+}
+
+func (m *Zskip) GetScore() string {
+	if m != nil {
+		return m.Score
+	}
+	return ""
+}
+
 // The request message containing the user's name.
 type HelloRequest struct {
 	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
@@ -36,7 +255,7 @@ func (m *HelloRequest) Reset()         { *m = HelloRequest{} }
 func (m *HelloRequest) String() string { return proto.CompactTextString(m) }
 func (*HelloRequest) ProtoMessage()    {}
 func (*HelloRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6af20da3838980fa, []int{0}
+	return fileDescriptor_6af20da3838980fa, []int{5}
 }
 
 func (m *HelloRequest) XXX_Unmarshal(b []byte) error {
@@ -76,7 +295,7 @@ func (m *HelloReply) Reset()         { *m = HelloReply{} }
 func (m *HelloReply) String() string { return proto.CompactTextString(m) }
 func (*HelloReply) ProtoMessage()    {}
 func (*HelloReply) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6af20da3838980fa, []int{1}
+	return fileDescriptor_6af20da3838980fa, []int{6}
 }
 
 func (m *HelloReply) XXX_Unmarshal(b []byte) error {
@@ -105,6 +324,11 @@ func (m *HelloReply) GetMessage() string {
 }
 
 func init() {
+	proto.RegisterType((*ZaddRequest)(nil), "dataStructure.hisheng.zskiplist.ZaddRequest")
+	proto.RegisterType((*ZaddReply)(nil), "dataStructure.hisheng.zskiplist.ZaddReply")
+	proto.RegisterType((*ListRequest)(nil), "dataStructure.hisheng.zskiplist.ListRequest")
+	proto.RegisterType((*ListReply)(nil), "dataStructure.hisheng.zskiplist.ListReply")
+	proto.RegisterType((*Zskip)(nil), "dataStructure.hisheng.zskiplist.Zskip")
 	proto.RegisterType((*HelloRequest)(nil), "dataStructure.hisheng.zskiplist.HelloRequest")
 	proto.RegisterType((*HelloReply)(nil), "dataStructure.hisheng.zskiplist.HelloReply")
 }
@@ -112,18 +336,25 @@ func init() {
 func init() { proto.RegisterFile("zskiplist.proto", fileDescriptor_6af20da3838980fa) }
 
 var fileDescriptor_6af20da3838980fa = []byte{
-	// 170 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0xaf, 0x2a, 0xce, 0xce,
-	0x2c, 0xc8, 0xc9, 0x2c, 0x2e, 0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x92, 0x4f, 0x49, 0x2c,
-	0x49, 0x0c, 0x2e, 0x29, 0x2a, 0x4d, 0x2e, 0x29, 0x2d, 0x4a, 0xd5, 0xcb, 0xc8, 0x2c, 0xce, 0x48,
-	0xcd, 0x4b, 0xd7, 0x83, 0x2b, 0x53, 0x52, 0xe2, 0xe2, 0xf1, 0x48, 0xcd, 0xc9, 0xc9, 0x0f, 0x4a,
-	0x2d, 0x2c, 0x4d, 0x2d, 0x2e, 0x11, 0x12, 0xe2, 0x62, 0xc9, 0x4b, 0xcc, 0x4d, 0x95, 0x60, 0x54,
-	0x60, 0xd4, 0xe0, 0x0c, 0x02, 0xb3, 0x95, 0xd4, 0xb8, 0xb8, 0xa0, 0x6a, 0x0a, 0x72, 0x2a, 0x85,
-	0x24, 0xb8, 0xd8, 0x73, 0x53, 0x8b, 0x8b, 0x13, 0xd3, 0x61, 0x8a, 0x60, 0x5c, 0xa3, 0x52, 0x2e,
-	0xce, 0x28, 0x98, 0xc1, 0x42, 0x19, 0x5c, 0x1c, 0xc1, 0x89, 0x95, 0x60, 0x7d, 0x42, 0xba, 0x7a,
-	0x04, 0x9c, 0xa1, 0x87, 0xec, 0x06, 0x29, 0x6d, 0x62, 0x95, 0x17, 0xe4, 0x54, 0x2a, 0x31, 0x38,
-	0xb1, 0x45, 0xb1, 0xa4, 0x17, 0x15, 0x24, 0x27, 0xb1, 0x81, 0xbd, 0x6c, 0x0c, 0x08, 0x00, 0x00,
-	0xff, 0xff, 0xa5, 0x5d, 0xe7, 0x18, 0x05, 0x01, 0x00, 0x00,
+	// 284 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x92, 0x3f, 0x4f, 0xc3, 0x30,
+	0x10, 0xc5, 0x9b, 0x36, 0x2d, 0xe4, 0x8a, 0x04, 0xb2, 0x18, 0xa2, 0x2e, 0x54, 0x1e, 0xaa, 0x8a,
+	0x3f, 0x46, 0x2a, 0x62, 0x61, 0x64, 0x81, 0x81, 0x29, 0xdd, 0xb2, 0xb9, 0x89, 0x95, 0x44, 0xb8,
+	0x8d, 0xb1, 0x9d, 0x21, 0x7c, 0x37, 0xbe, 0x1b, 0xb2, 0x83, 0x43, 0xb7, 0x58, 0xb0, 0xdd, 0x45,
+	0xef, 0xe5, 0xf7, 0x92, 0x77, 0x70, 0xfe, 0xa9, 0xde, 0x2b, 0xc1, 0x2b, 0xa5, 0x89, 0x90, 0xb5,
+	0xae, 0xd1, 0x55, 0x4e, 0x35, 0xdd, 0x6a, 0xd9, 0x64, 0xba, 0x91, 0x8c, 0x94, 0x95, 0x2a, 0xd9,
+	0xa1, 0x20, 0xbd, 0x0c, 0x3f, 0xc2, 0x3c, 0xa5, 0x79, 0x9e, 0xb0, 0x8f, 0x86, 0x29, 0x8d, 0x2e,
+	0x60, 0xc2, 0x38, 0x8b, 0x83, 0x65, 0xb0, 0x8e, 0x12, 0x33, 0xa2, 0x4b, 0x98, 0xaa, 0xac, 0x96,
+	0x2c, 0x1e, 0xdb, 0x67, 0xdd, 0x82, 0x5f, 0x20, 0xea, 0x6c, 0x82, 0xb7, 0xe8, 0x09, 0x42, 0xf3,
+	0xae, 0x38, 0x58, 0x4e, 0xd6, 0xf3, 0xcd, 0x8a, 0x0c, 0x30, 0x49, 0x6a, 0xa6, 0x24, 0x74, 0xfc,
+	0xb7, 0x4a, 0xe9, 0x3f, 0xf0, 0x3b, 0xdb, 0x7f, 0xf9, 0xf7, 0x30, 0xb5, 0xab, 0x37, 0x19, 0xc3,
+	0xd9, 0x2b, 0xe3, 0xbc, 0x76, 0x89, 0x11, 0x84, 0x07, 0xba, 0x77, 0x46, 0x3b, 0xe3, 0x15, 0xc0,
+	0x8f, 0xc6, 0xc4, 0x8b, 0xe1, 0x64, 0xcf, 0x94, 0xa2, 0x85, 0x13, 0xb9, 0x75, 0xf3, 0x35, 0x86,
+	0x28, 0x75, 0xb1, 0x50, 0x09, 0xa7, 0x5b, 0xda, 0x5a, 0x23, 0xba, 0x1b, 0xfc, 0x88, 0xe3, 0x10,
+	0x8b, 0x1b, 0x5f, 0xb9, 0xe0, 0x2d, 0x1e, 0xa1, 0x1d, 0x84, 0xa6, 0x3d, 0x74, 0x3b, 0xfc, 0xab,
+	0x7e, 0x6f, 0x63, 0x71, 0xed, 0xa9, 0xee, 0x19, 0xa6, 0x21, 0x0f, 0xc6, 0x51, 0xff, 0x1e, 0x8c,
+	0xbe, 0x76, 0x3c, 0x7a, 0x9e, 0xa5, 0x61, 0x21, 0x45, 0xb6, 0x9b, 0xd9, 0x63, 0x7f, 0xf8, 0x0e,
+	0x00, 0x00, 0xff, 0xff, 0x40, 0xbb, 0xf9, 0xfe, 0xff, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -140,6 +371,8 @@ const _ = grpc.SupportPackageIsVersion4
 type ZskiplistClient interface {
 	// Sends a greeting
 	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
+	Zadd(ctx context.Context, in *ZaddRequest, opts ...grpc.CallOption) (*ZaddReply, error)
+	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListReply, error)
 }
 
 type zskiplistClient struct {
@@ -159,10 +392,30 @@ func (c *zskiplistClient) SayHello(ctx context.Context, in *HelloRequest, opts .
 	return out, nil
 }
 
+func (c *zskiplistClient) Zadd(ctx context.Context, in *ZaddRequest, opts ...grpc.CallOption) (*ZaddReply, error) {
+	out := new(ZaddReply)
+	err := c.cc.Invoke(ctx, "/dataStructure.hisheng.zskiplist.Zskiplist/Zadd", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *zskiplistClient) List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListReply, error) {
+	out := new(ListReply)
+	err := c.cc.Invoke(ctx, "/dataStructure.hisheng.zskiplist.Zskiplist/List", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ZskiplistServer is the server API for Zskiplist service.
 type ZskiplistServer interface {
 	// Sends a greeting
 	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
+	Zadd(context.Context, *ZaddRequest) (*ZaddReply, error)
+	List(context.Context, *ListRequest) (*ListReply, error)
 }
 
 // UnimplementedZskiplistServer can be embedded to have forward compatible implementations.
@@ -171,6 +424,12 @@ type UnimplementedZskiplistServer struct {
 
 func (*UnimplementedZskiplistServer) SayHello(ctx context.Context, req *HelloRequest) (*HelloReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
+}
+func (*UnimplementedZskiplistServer) Zadd(ctx context.Context, req *ZaddRequest) (*ZaddReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Zadd not implemented")
+}
+func (*UnimplementedZskiplistServer) List(ctx context.Context, req *ListRequest) (*ListReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
 
 func RegisterZskiplistServer(s *grpc.Server, srv ZskiplistServer) {
@@ -195,6 +454,42 @@ func _Zskiplist_SayHello_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Zskiplist_Zadd_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ZaddRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ZskiplistServer).Zadd(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dataStructure.hisheng.zskiplist.Zskiplist/Zadd",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ZskiplistServer).Zadd(ctx, req.(*ZaddRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Zskiplist_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ZskiplistServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dataStructure.hisheng.zskiplist.Zskiplist/List",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ZskiplistServer).List(ctx, req.(*ListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Zskiplist_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "dataStructure.hisheng.zskiplist.Zskiplist",
 	HandlerType: (*ZskiplistServer)(nil),
@@ -202,6 +497,14 @@ var _Zskiplist_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SayHello",
 			Handler:    _Zskiplist_SayHello_Handler,
+		},
+		{
+			MethodName: "Zadd",
+			Handler:    _Zskiplist_Zadd_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _Zskiplist_List_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

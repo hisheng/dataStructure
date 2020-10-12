@@ -1,49 +1,54 @@
-package main
+package zskiplist
 
-import "math/rand"
+import (
+	"math/rand"
+)
 
 const ZSKIPLIST_MAXLEVEL = 64
 const ZSKIPLIST_P = 0.25
 
-type zskiplistNode struct {
-	ele      string
-	score    float64
-	backward *zskiplistNode
-	levels   []*zskiplistLevel
+type ZskiplistNode struct {
+	Ele      string
+	Score    float64
+	Backward *ZskiplistNode
+	Levels   map[int]*ZskiplistLevel
 }
 
-type zskiplistLevel struct {
-	forward *zskiplistNode
-	span    int
+type ZskiplistLevel struct {
+	Forward *ZskiplistNode
+	Span    int
 }
 
-type zskiplist struct {
-	header, tail *zskiplistNode
-	length       int
-	level        int
+type Zskiplist struct {
+	Header, Tail *ZskiplistNode
+	Length       int
+	Level        int
 }
 
-func zslCreate() *zskiplist {
-	zsl := &zskiplist{
-		level:  1,
-		length: 0,
-		header: zslCreateNode(ZSKIPLIST_MAXLEVEL, 0, ""),
-		tail:   nil,
+func ZslCreate() *Zskiplist {
+	zsl := &Zskiplist{
+		Level:  1,
+		Length: 0,
+		Header: ZslCreateNode(ZSKIPLIST_MAXLEVEL, 0, ""),
+		Tail:   nil,
 	}
-	for j := 0; j < ZSKIPLIST_MAXLEVEL; j++ {
-		zsl.header.levels[j].forward = nil
-		zsl.header.levels[j].span = 0
-	}
-	zsl.header.backward = nil
+	zsl.Header.Backward = nil
 	return zsl
 }
 
-func zslCreateNode(level int, score float64, ele string) *zskiplistNode {
-	var levels = make([]*zskiplistLevel, level)
-	return &zskiplistNode{
-		score:  score,
-		ele:    ele,
-		levels: levels,
+func ZslCreateNode(level int, score float64, ele string) *ZskiplistNode {
+	var levels map[int]*ZskiplistLevel = make(map[int]*ZskiplistLevel, 0)
+	for j := 0; j < level; j++ {
+		l := &ZskiplistLevel{
+			Forward: nil,
+			Span:    0,
+		}
+		levels[j] = l
+	}
+	return &ZskiplistNode{
+		Score:  score,
+		Ele:    ele,
+		Levels: levels,
 	}
 }
 
@@ -56,4 +61,17 @@ func ZslRandomLevel() int {
 		return level
 	}
 	return ZSKIPLIST_MAXLEVEL
+}
+
+func ZslInsert(zsl *Zskiplist, score float64, ele string) *ZskiplistNode {
+	//update := make([]*zskiplistNode, ZSKIPLIST_MAXLEVEL)
+	//rank := make([]int, ZSKIPLIST_MAXLEVEL)
+	//var x zskiplistNode
+	level := ZslRandomLevel()
+	x := ZslCreateNode(level, score, ele)
+	if zsl.Tail != nil {
+		zsl.Tail.Levels[0].Forward = x
+	}
+	zsl.Tail = x
+	return x
 }
