@@ -1,14 +1,13 @@
 package cmd
 
 import (
+	pb "zskiplist/grpc"
 	"github.com/spf13/cobra"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 	"log"
 	"net"
 	"os"
-	pb "github.com/hisheng/dataStructure/zskiplist/grpc"
-
 )
 
 var (
@@ -22,7 +21,7 @@ var (
 				log.Fatalf("failed to listen: %v", err)
 			}
 			grpcServer := grpc.NewServer()
-			pb.RegisterAdvServer(grpcServer, pb.NewZskiplistService())
+			pb.RegisterZskiplistServer(grpcServer, pb.NewZskiplistService())
 			reflection.Register(grpcServer)
 			if err = grpcServer.Serve(conn); err != nil {
 				log.Fatalf("grpcServer Server: %v", err)

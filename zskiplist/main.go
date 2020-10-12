@@ -3,7 +3,7 @@
 */
 package main
 
-import "github.com/hisheng/dataStructure/zskiplist/cmd"
+import "zskiplist/cmd"
 
 func main() {
 	cmd.Execute()

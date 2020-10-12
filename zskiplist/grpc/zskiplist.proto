@@ -2,12 +2,12 @@ syntax = "proto3";
 
 
 package dataStructure.hisheng.zskiplist; //包名
-option go_package = "zskiplist";
+option go_package = "grpc";
 
 
 
 // The greeting service definition.
-service Greeter {
+service Zskiplist {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply) {}
 }
