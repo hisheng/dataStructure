@@ -18,6 +18,7 @@ func TestByte(t *testing.T) {
 	//ziplist[1:6] = "hello"
 
 	ziplist = []byte("hello")
+	t.Log(len(ziplist))
 	t.Logf("%b ", ziplist[0])
 	t.Logf("%b", ziplist[1])
 	t.Logf("%b", ziplist[2])
@@ -27,8 +28,8 @@ func TestByte(t *testing.T) {
 	t.Log(string(ziplist))
 	t.Log(ziplist[0])
 	t.Log(string(ziplist[0]))
-	zips := []rune("你号世界")
 
+	zips := []rune("你号世界")
 	ziplist[4] = 123
 	t.Log(string(zips))
 	t.Log(zips[0])
