@@ -32,4 +32,40 @@ func TestSprint(t *testing.T) {
 	t.Log(fmt.Sprint("1"))
 }
 
+func TestX(t *testing.T) {
+	//t.Logf("%d", "\xE4")
+	t.Log(strconv.ParseInt("E4", 16, 32))
+}
 
+func TestS(t *testing.T) {
+	var s string = "hello"
+	//s[1] = 's' //不能修改
+	sb := []byte(s)
+	sb[1] = 'g'
+	t.Log(sb)
+	t.Log(string(sb))
+
+	s = "中华人民共和国"
+	for _, i2 := range s {
+		t.Logf("%[1]c %[1]d", i2)
+	}
+	//range 的话 是utf-8 "中华人民共和国"
+
+	//strings.Split(s, ",")
+	//strings.Join()
+
+	var r []rune
+	r = []rune("中试试")
+	//r[1] = rune("哈")
+	r[1] = '哈'
+	t.Log(r)
+	for _, i2 := range r {
+		t.Logf("%[1]c %[1]d", i2)
+	}
+
+	var b []byte
+	b = []byte("hello")
+	b[1] = 'l'
+	t.Log(string(b))
+
+}
