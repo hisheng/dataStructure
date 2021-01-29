@@ -63,3 +63,13 @@ func MD5(value string) string {
 	cipherStr := h.Sum(nil)
 	return hex.EncodeToString(cipherStr)
 }
+
+type PersionA struct {
+	Age  int
+	Name string
+}
+
+func TestStructGO(t *testing.T) {
+	e2 := new(PersionA)
+	t.Log(e2)
+}
