@@ -122,3 +122,20 @@ func TestMapForSet(t *testing.T) {
 	t.Log(len(set)) //变成0了
 
 }
+
+/**
+ * map 支持中文key
+ *
+ * @author zhanghaisheng@qimao.com
+ * @dateTime   : 2021/2/3 4:44 下午
+ */
+func TestCn(t *testing.T) {
+	s := []string{"上海", "广东", "浙江"}
+	mapData := make(map[string]string, 0)
+	for _, v := range s {
+		mapData[v] = v
+	}
+	t.Log(mapData) //map[上海:上海 广东:广东 浙江:浙江]
+	region, ok := mapData["上海"]
+	t.Log(region, ok) //上海 true
+}
