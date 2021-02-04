@@ -135,7 +135,12 @@ func TestCn(t *testing.T) {
 	for _, v := range s {
 		mapData[v] = v
 	}
+
 	t.Log(mapData) //map[上海:上海 广东:广东 浙江:浙江]
 	region, ok := mapData["上海"]
 	t.Log(region, ok) //上海 true
+	region, ok = mapData["江苏"]
+	t.Log(region, ok) //"" false
+	region, ok = mapData["上"]
+	t.Log(region, ok) //"" false
 }
