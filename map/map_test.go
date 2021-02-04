@@ -144,3 +144,12 @@ func TestCn(t *testing.T) {
 	region, ok = mapData["上"]
 	t.Log(region, ok) //"" false
 }
+
+func TestStringMap(t *testing.T) {
+	var m map[string]string = make(map[string]string, 0)
+	m["id"] = "11"
+	m["name"] = "哈哈"
+	m["nam"] = "哈哈2"
+	m["na"] = "哈哈3"
+	t.Log(m) //map[id:11 na:哈哈3 nam:哈哈2 name:哈哈]
+}
