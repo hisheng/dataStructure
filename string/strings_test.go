@@ -77,4 +77,8 @@ func TestS2(t *testing.T) {
 	xbytes[0] = 'T'
 	t.Log(xbytes)         //[84 101 115 116]
 	t.Log(string(xbytes)) //Test
+
+	s := "text"
+	fmt.Println(s[0])      //print 116
+	fmt.Printf("%T", s[0]) //prints uint8
 }
