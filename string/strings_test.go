@@ -69,3 +69,12 @@ func TestS(t *testing.T) {
 	t.Log(string(b))
 
 }
+
+func TestS2(t *testing.T) {
+	x := "test"
+	// x[0] = 'T' error
+	xbytes := []byte(x)
+	xbytes[0] = 'T'
+	t.Log(xbytes)         //[84 101 115 116]
+	t.Log(string(xbytes)) //Test
+}
