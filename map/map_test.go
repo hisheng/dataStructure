@@ -42,15 +42,15 @@ func TestMapKey(t *testing.T) {
 	person["name"] = "hisneg"
 	person["age"] = "22"
 
-	value, exists := person["name"]
-	fmt.Println(value, exists)
+	value, ok := person["name"]
+	fmt.Println(value, ok)
 
-	value, exists = person["name_none"]
+	value, ok = person["name_none"]
 	a := person["name_none"]
 	t.Logf("%p", &a)
 	t.Log(person["name_none"])
 	t.Log("----")
-	t.Logf("%v %v", value, exists)
+	t.Logf("%v %v", value, ok)
 	t.Log("----end")
 
 }
