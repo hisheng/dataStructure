@@ -35,3 +35,8 @@ func TestArrayArray(t *testing.T) {
 	}
 	t.Log(table) //[[0 0 0 0] [0 0 0 0]]
 }
+
+func TestArr(t *testing.T) {
+	x := []int{1, 2}
+	t.Log(x) //[1 2]
+}
