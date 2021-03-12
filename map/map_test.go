@@ -18,6 +18,7 @@ func init() {
 func TestMap(t *testing.T) {
 	var person map[string]string
 	person = make(map[string]string, 0) //必须要这个
+	t.Log(len(person))
 	person["name"] = "hisneg"
 	person["age"] = "22"
 
