@@ -25,7 +25,7 @@ func TestMap(t *testing.T) {
 	for k, v := range person {
 		t.Logf("k=%s v=%s", k, v)
 	}
-	//map 正确的方法是
+	//map
 	for key := range person {
 		t.Log(key)
 	}
