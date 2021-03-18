@@ -10,6 +10,7 @@ import (
 	"runtime"
 	"sync"
 	"testing"
+	"unsafe"
 )
 
 type Singleton struct {
@@ -32,6 +33,8 @@ func TestName(t *testing.T) {
 		wg.Add(1)
 		go func() {
 			obj := GetObj()
+			t.Logf("%x", obj)
+			t.Log(unsafe.Pointer(obj)) //输出对象的地址
 			t.Log(obj)
 			wg.Done()
 		}()
