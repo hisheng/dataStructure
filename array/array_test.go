@@ -17,6 +17,12 @@ func TestArray(t *testing.T) {
 
 	t.Log(x) //prints [1 2 3] (not ok if you need [7 2 3])
 	//如果是 slice 的话，会一样，array是不一样的
+
+	y := [...]int{1, 2, 3}
+	t.Log(y)
+
+	//t.FailNow() t.Fatal()  失败了， 停止本个测试，其他的测试继续执行
+	//t.Fail() t.Error()  marks the function as having failed but continues execution.
 }
 
 /**
