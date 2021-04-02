@@ -7,5 +7,6 @@ require (
 	github.com/Shopify/sarama v1.27.2
 	github.com/go-playground/assert/v2 v2.0.1
 	github.com/spaolacci/murmur3 v1.1.0
+	github.com/uber/go-torch v0.0.0-20181107071353-86f327cc820e // indirect
 	gocv.io/x/gocv v0.26.0
 )
