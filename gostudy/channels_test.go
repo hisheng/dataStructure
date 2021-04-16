@@ -29,6 +29,16 @@ func TestBufChannel(t *testing.T) {
 	fmt.Println(<-ch)
 	fmt.Println(<-ch)
 
+	//用select 可以防止  fmt.Println(<-ch) 包错误信息
+	select {
+	case i := <-ch:
+		t.Log(i)
+		// 使用 i
+	default:
+		t.Log("五数据")
+		// 从 c 中接收会阻塞时执行
+	}
+
 	// 不close 的话，下面再请求会panic
 	close(ch)
 	v, ok := <-ch
