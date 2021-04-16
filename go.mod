@@ -9,4 +9,5 @@ require (
 	github.com/spaolacci/murmur3 v1.1.0
 	github.com/uber/go-torch v0.0.0-20181107071353-86f327cc820e // indirect
 	gocv.io/x/gocv v0.26.0
+	rsc.io/quote v1.5.2 // indirect
 )
