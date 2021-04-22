@@ -5,7 +5,7 @@
 */
 package main
 
-//go tool compile -S main.go
+//go tool compile -S s1.go
 //go tool compile 命令用于调用Go语言提供的底层命令工具，其中-S参数表示输出汇编格式。
 
 func main() {

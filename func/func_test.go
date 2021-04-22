@@ -1,6 +1,7 @@
 package tfunc
 
 import (
+	"sync"
 	"testing"
 )
 
@@ -49,4 +50,27 @@ func TestFunc(t *testing.T) {
 	Table("t_name")
 	Database("ss")
 	//Write(ops, Table("t"), Database("d")) 封装属性，如果有一些属性很复杂的话，但为什么不用第一种方法？
+}
+
+func TestNoName(t *testing.T) {
+	var wg sync.WaitGroup
+	wg.Add(5)
+	for i := 0; i < 5; i++ {
+		go func() {
+			t.Log(i) // Not the 'i' you are looking for.
+			wg.Done()
+		}()
+	}
+	wg.Wait()
+}
+func TestNoName2(t *testing.T) {
+	var wg sync.WaitGroup
+	wg.Add(5)
+	for i := 0; i < 5; i++ {
+		go func(j int) {
+			t.Log(i)
+			wg.Done()
+		}(i)
+	}
+	wg.Wait()
 }
